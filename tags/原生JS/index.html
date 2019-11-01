@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1031531798.github.io">
-  <title>林的博客</title>
+  <title>Tag: 原生JS | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="关于前端的一些自我学习记录">
 <meta name="keywords" content="Web前端">
 <meta property="og:type" content="website">
 <meta property="og:title" content="林的博客">
-<meta property="og:url" content="https://1031531798.github.io/index.html">
+<meta property="og:url" content="https://1031531798.github.io/tags/原生JS/index.html">
 <meta property="og:site_name" content="林的博客">
 <meta property="og:description" content="关于前端的一些自我学习记录">
 <meta property="og:locale" content="zh-cn">
@@ -83,13 +83,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/u/5802592764/home?wvr=5&uut=fin&from=reg" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -126,13 +126,13 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/u/5802592764/home?wvr=5&uut=fin&from=reg" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -160,95 +160,58 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-现在开始写博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/1970" class="archive-year">1970</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/1970/01/01/现在开始写博客/" class="archive-article-date">
+  	<time datetime="1970-01-01T00:00:02.019Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1970-01-01</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/30/现在开始写博客/">原生JS中关于CSS样式的一些操作</a>
+      <a class="archive-article-title" href="/1970/01/01/现在开始写博客/">原生JS中关于样式的一些操作</a>
     </h1>
   
 
-        
-        <a href="/2019/10/30/现在开始写博客/" class="archive-article-date">
-  	<time datetime="2019-10-30T13:36:02.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div>
-<h3 style="color:red;">方法一：object.style.className</h3>
-<span>该方法有两种写法，分别是 obj.style.width="300px"; 和 obj.style="width:300px;" 。这两种都可以达到修改对象样式的效果。这里需要注意在
-javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroundImage”的形式，就不会报错。
-这种方法有很多的局限性。你不能用这种方法来获取内部样式和外部样式，只能用于行内元素，也就是说你如果想或许内联样式或者外部样式，就必须给你的标签设定
-一个“style”属性并且给它设定样式。 </span>
-
-<h3 style="color:red;">方法二：obj.className</h3>
-<span>这种方法可以用setAttribute方法来修改对象的class属性从而为其重新绑定一个CSS样式 "obj.setAttribute("class", "style");" 这种方法可以用来更改内联的CSS样式</span>
-
-<h3 style="color:red;">方法三：改变外部引入的CSS文件的样式</h3>
-<span>同样用setAttribute方法来改变，获取<link>标签对象，改变<link>标签的href来更换外部样式表 
- obj.setAttribute("href","css.css");
-</span>
-</div>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">原生JS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/30/现在开始写博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -270,10 +233,10 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -341,7 +304,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">原生JS</a>
               </li>
             
             <div class="clearfix"></div>
@@ -393,7 +356,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://ahogek.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Ahogek</a>
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
             <li class="search-li">

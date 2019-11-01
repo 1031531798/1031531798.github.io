@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1031531798.github.io">
-  <title>现在开始写博客 | 林的博客</title>
+  <title>原生JS中关于CSS样式的一些操作 | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2019年10月31日开始 我正式开始写博客 现在开始写博客 现在开始写博客 现在开始写博客">
-<meta name="keywords" content="Web前端">
+  <meta name="description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="现在开始写博客">
+<meta property="og:title" content="原生JS中关于CSS样式的一些操作">
 <meta property="og:url" content="https://1031531798.github.io/2019/10/30/现在开始写博客/index.html">
 <meta property="og:site_name" content="林的博客">
-<meta property="og:description" content="2019年10月31日开始 我正式开始写博客 现在开始写博客 现在开始写博客 现在开始写博客">
+<meta property="og:description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-30T13:42:28.882Z">
+<meta property="og:updated_time" content="2019-10-31T13:15:50.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="现在开始写博客">
-<meta name="twitter:description" content="2019年10月31日开始 我正式开始写博客 现在开始写博客 现在开始写博客 现在开始写博客">
+<meta name="twitter:title" content="原生JS中关于CSS样式的一些操作">
+<meta name="twitter:description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -84,13 +84,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/u/5802592764/home?wvr=5&uut=fin&from=reg" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -127,13 +127,13 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/u/5802592764/home?wvr=5&uut=fin&from=reg" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -166,51 +166,53 @@
         
   
     <h1 class="article-title" itemprop="name">
-      现在开始写博客
+      原生JS中关于CSS样式的一些操作
     </h1>
   
 
         
         <a href="/2019/10/30/现在开始写博客/" class="archive-article-date">
-  	<time datetime="2019-10-30T13:36:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+  	<time datetime="2019-10-30T13:36:02.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2019年10月31日开始 我正式开始写博客</p>
-<h1>现在开始写博客</h1>
-<h2>现在开始写博客</h2>
-<h3>现在开始写博客</h3>
-      
+        <div>
+<h3 style="color:red;">方法一：object.style.className</h3>
+<span>该方法有两种写法，分别是 obj.style.width="300px"; 和 obj.style="width:300px;" 。这两种都可以达到修改对象样式的效果。这里需要注意在
+javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroundImage”的形式，就不会报错。
+这种方法有很多的局限性。你不能用这种方法来获取内部样式和外部样式，只能用于行内元素，也就是说你如果想或许内联样式或者外部样式，就必须给你的标签设定
+一个“style”属性并且给它设定样式。 </span>
+
+<h3 style="color:red;">方法二：obj.className</h3>
+<span>这种方法可以用setAttribute方法来修改对象的class属性从而为其重新绑定一个CSS样式 "obj.setAttribute("class", "style");" 这种方法可以用来更改内联的CSS样式</span>
+
+<h3 style="color:red;">方法三：改变外部引入的CSS文件的样式</h3>
+<span>同样用setAttribute方法来改变，获取<link>标签对象，改变<link>标签的href来更换外部样式表 
+ obj.setAttribute("href","css.css");
+</span>
+</div>
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -391,6 +393,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -441,7 +447,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://ahogek.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Ahogek</a>
             </li>
           
             <li class="search-li">
