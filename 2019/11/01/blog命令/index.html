@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1031531798.github.io">
-  <title>原生JS中关于CSS样式的一些操作 | 林的博客</title>
+  <title>hexo 中blog的命令 | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
-<meta name="keywords" content="javascript">
+  <meta name="description" content=".deploy #需要部署的文件node_modules #Hexo插件public #生成的静态网页文件scaffolds #模板source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里">
+<meta name="keywords" content="Web前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生JS中关于CSS样式的一些操作">
-<meta property="og:url" content="https://1031531798.github.io/2019/10/30/原生JS关于CSS样式的获取和改变/index.html">
+<meta property="og:title" content="hexo 中blog的命令">
+<meta property="og:url" content="https://1031531798.github.io/2019/11/01/blog命令/index.html">
 <meta property="og:site_name" content="林的博客">
-<meta property="og:description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
+<meta property="og:description" content=".deploy #需要部署的文件node_modules #Hexo插件public #生成的静态网页文件scaffolds #模板source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-31T13:15:50.788Z">
+<meta property="og:updated_time" content="2019-11-02T08:57:32.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生JS中关于CSS样式的一些操作">
-<meta name="twitter:description" content="方法一：object.style.className 该方法有两种写法，分别是 obj.style.width=&quot;300px&quot;; 和 obj.style=&quot;width:300px;&quot; 。这两种都可以达到修改对象样式的效果。这里需要注意在 javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroun">
+<meta name="twitter:title" content="hexo 中blog的命令">
+<meta name="twitter:description" content=".deploy #需要部署的文件node_modules #Hexo插件public #生成的静态网页文件scaffolds #模板source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -159,41 +159,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-原生JS关于CSS样式的获取和改变" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-blog命令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      原生JS中关于CSS样式的一些操作
+      hexo 中blog的命令
     </h1>
   
 
         
-        <a href="/2019/10/30/原生JS关于CSS样式的获取和改变/" class="archive-article-date">
-  	<time datetime="2019-10-30T13:36:02.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-30</time>
+        <a href="/2019/11/01/blog命令/" class="archive-article-date">
+  	<time datetime="2019-11-01T13:18:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div>
-<h3 style="color:red;">方法一：object.style.className</h3>
-<span>该方法有两种写法，分别是 obj.style.width="300px"; 和 obj.style="width:300px;" 。这两种都可以达到修改对象样式的效果。这里需要注意在
-javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroundImage”的形式，就不会报错。
-这种方法有很多的局限性。你不能用这种方法来获取内部样式和外部样式，只能用于行内元素，也就是说你如果想或许内联样式或者外部样式，就必须给你的标签设定
-一个“style”属性并且给它设定样式。 </span>
-
-<h3 style="color:red;">方法二：obj.className</h3>
-<span>这种方法可以用setAttribute方法来修改对象的class属性从而为其重新绑定一个CSS样式 "obj.setAttribute("class", "style");" 这种方法可以用来更改内联的CSS样式</span>
-
-<h3 style="color:red;">方法三：改变外部引入的CSS文件的样式</h3>
-<span>同样用setAttribute方法来改变，获取<link>标签对象，改变<link>标签的href来更换外部样式表 
- obj.setAttribute("href","css.css");
-</span>
-</div>
+        <p>.deploy #需要部署的文件<br>node_modules #Hexo插件<br>public #生成的静态网页文件<br>scaffolds #模板<br>source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</p>
+<a id="more"></a>
+<p>_drafts #草稿<br>_posts #文章<br>themes #主题<br>_config.yml #全局配置文件<br>package.json</p>
+<p>转载：<a href="https://www.jianshu.com/p/6c3e87a3aec2" target="_blank" rel="noopener">https://www.jianshu.com/p/6c3e87a3aec2</a></p>
 
       
 
@@ -202,17 +191,6 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -263,7 +241,7 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/10/30/原生JS关于CSS样式的获取和改变/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/11/01/blog命令/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,6 +253,20 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/11/01/原生JS关于CSS样式的操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          原生JS关于CSS样式的操作
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -301,6 +293,25 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
   
 
   
+
+  
+  {% if site.comment_gitment_repo %}
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Fri Nov 01 2019 21:18:07 GMT+0800',
+        owner: '{{site.github_username}}',
+        repo: '{{site.comment_gitment_repo}}',
+        oauth: {
+            client_id: '{{site.comment_gitment_clientId}}',
+            client_secret: '{{site.comment_gitment_clientSecret}}',
+        },
+    });
+    gitment.render('gitmentContainer')
+</script>
+{% endif %}
 
   
 
@@ -396,6 +407,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
             
             <div class="clearfix"></div>
