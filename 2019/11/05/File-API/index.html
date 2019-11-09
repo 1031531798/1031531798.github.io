@@ -17,7 +17,7 @@
 <meta property="og:description" content="File API 能提供有关文件的信息并允许网页中的 JavaScript 访问其内容。File API对于某些专门的网站的不可或缺的。现在常用它实现对文件的预览等功能。 File API规定怎么从硬盘上提取文件，直接交给在网页中运行中的Javascript代码。然后代码可以打开文件探究数据，无论是本地文件还是其他文件。注意，关键在于文件会被直接交给JavaScript代码，它并不能修改文件，也不">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://1031531798.github.io/2019/11/05/File-API/11.9.png">
-<meta property="og:updated_time" content="2019-11-09T11:28:12.705Z">
+<meta property="og:updated_time" content="2019-11-09T12:09:53.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="File API">
 <meta name="twitter:description" content="File API 能提供有关文件的信息并允许网页中的 JavaScript 访问其内容。File API对于某些专门的网站的不可或缺的。现在常用它实现对文件的预览等功能。 File API规定怎么从硬盘上提取文件，直接交给在网页中运行中的Javascript代码。然后代码可以打开文件探究数据，无论是本地文件还是其他文件。注意，关键在于文件会被直接交给JavaScript代码，它并不能修改文件，也不">
@@ -182,7 +182,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>File API 能提供有关文件的信息并允许网页中的 JavaScript 访问其内容。<!--move--><br>File API对于某些专门的网站的不可或缺的。现在常用它实现对文件的预览等功能。</p>
-<p>File API规定怎么从硬盘上提取文件，直接交给在网页中运行中的Javascript代码。然后代码可以打开文件探究数据，无论是本地文件还是其他文件。注意，关键在于文件会被直接交给JavaScript代码，它并不能修改文件，也不能创建新文件，想要保存任何数据，需要将数据发送到服务器或者保存在本地存储空间中。<br>在通过File API操作文件之前，首先必须取得文件。使用File API可以直接读取文本文件的内容。<br>例如：</p>
+<p>File API规定怎么从硬盘上提取文件，直接交给在网页中运行中的Javascript代码。然后代码可以打开文件探究数据，无论是本地文件还是其他文件。注意，关键在于文件会被直接交给JavaScript代码，它并不能修改文件，也不能创建新文件，想要保存任何数据，需要将数据发送到服务器或者保存在本地存储空间中。<br>在通过File API操作文件之前，首先必须取得文件。使用File API可以直接读取文本文件的内容。 </p>
+<a id="more"></a>
+<p>例如：</p>
 <img src="/2019/11/05/File-API/11.9.png" title="This is an image">
 
 <p>readAsText()方法只能处理文本内容的文件，如CSV格式，XML格式，.docx格式和.xlsx格式的文件。<br>readAsText()方法只是众多读取文件的方法之一，还有readAsBinaryStrng(),readAsDataURL()和readAsArrayBuffer().</p>
