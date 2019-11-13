@@ -5,23 +5,25 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <script src="/live2d-widget/autoload.js"></script>
   <link rel="dns-prefetch" href="https://1031531798.github.io">
   <title>获取鼠标目前坐标来实现跟随鼠标 | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这里首先要简单说下“Event”这个对象，Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。 事件通常与函数结合使用，函数不会在事件发生前被执行！通过这个对象来运用clientX/clientY这两个方法来获取当前鼠标相对于浏览器窗口左上角的位置信息。">
-<meta name="keywords" content="Web前端">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取鼠标目前坐标来实现跟随鼠标">
-<meta property="og:url" content="https://1031531798.github.io/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/index.html">
+<meta property="og:url" content="https://1031531798.github.io/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/index.html">
 <meta property="og:site_name" content="林的博客">
 <meta property="og:description" content="这里首先要简单说下“Event”这个对象，Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。 事件通常与函数结合使用，函数不会在事件发生前被执行！通过这个对象来运用clientX/clientY这两个方法来获取当前鼠标相对于浏览器窗口左上角的位置信息。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/aas.png">
-<meta property="og:updated_time" content="2019-11-09T10:54:10.893Z">
+<meta property="og:image" content="https://1031531798.github.io/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/aas.png">
+<meta property="og:updated_time" content="2019-11-09T12:11:02.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取鼠标目前坐标来实现跟随鼠标">
 <meta name="twitter:description" content="这里首先要简单说下“Event”这个对象，Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。 事件通常与函数结合使用，函数不会在事件发生前被执行！通过这个对象来运用clientX/clientY这两个方法来获取当前鼠标相对于浏览器窗口左上角的位置信息。">
-<meta name="twitter:image" content="https://1031531798.github.io/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/aas.png">
+<meta name="twitter:image" content="https://1031531798.github.io/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/aas.png">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -173,8 +175,8 @@
   
 
         
-        <a href="/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/" class="archive-article-date">
-  	<time datetime="2019-11-09T09:42:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+        <a href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/" class="archive-article-date">
+  	<time datetime="2019-11-08T09:42:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
 </a>
         
       </header>
@@ -183,7 +185,7 @@
       
         <p>这里首先要简单说下“Event”这个对象，Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
 <p>事件通常与函数结合使用，函数不会在事件发生前被执行！通过这个对象来运用<b>clientX/clientY</b>这两个方法来获取当前鼠标相对于浏览器窗口<br>左上角的位置信息。<a id="more"></a><br>获取到X，Y坐标值后就可以把对象的top和left值设置为获取到的X，Y坐标值。为函数绑定一个鼠标移动事件“onmousemove”就可以实现跟随鼠标的效果。</p>
-<img src="/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/aas.png" title="This is an image">
+<img src="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/aas.png" title="This is an image">
       
 
       
@@ -191,6 +193,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -241,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/11/09/获取鼠标目前坐标来实现跟随鼠标/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -255,9 +268,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/09/终端中常用的快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          终端中常用的快捷键
+        
+      </div>
+    </a>
   
-    <a href="/2019/11/09/终端中常用的快捷键/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">终端中常用的快捷键</div>
+  
+    <a href="/2019/11/05/File-API/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">File API</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -297,7 +319,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'Sat Nov 09 2019 17:42:03 GMT+0800',
+        id: 'Fri Nov 08 2019 17:42:03 GMT+0800',
         owner: '{{site.github_username}}',
         repo: '{{site.comment_gitment_repo}}',
         oauth: {
@@ -562,5 +584,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"display":{"position":"left","width":200,"height":300},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
