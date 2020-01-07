@@ -9,20 +9,26 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>终端中常用的快捷键 | 林的博客</title>
+  <title>canvas图片裁剪 | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.[Tab]    使用Tab键来进行命令补全，Tab键一般是在字母Q旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称    时可以只输入它的开头的一部分，然后按下Tab键就可以得到提示或者帮助完成，不止可以补全命令，补全目录、补全命令参数都是没问题的">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="canvas画布功能在前端还是挺方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="终端中常用的快捷键">
-<meta property="og:url" content="https://1031531798.github.io/2019/11/09/终端中常用的快捷键/index.html">
+<meta property="og:title" content="canvas图片裁剪">
+<meta property="og:url" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/index.html">
 <meta property="og:site_name" content="林的博客">
-<meta property="og:description" content="1.[Tab]    使用Tab键来进行命令补全，Tab键一般是在字母Q旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称    时可以只输入它的开头的一部分，然后按下Tab键就可以得到提示或者帮助完成，不止可以补全命令，补全目录、补全命令参数都是没问题的">
+<meta property="og:description" content="canvas画布功能在前端还是挺方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-12-14T12:00:15.072Z">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/04.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/05.png">
+<meta property="og:updated_time" content="2020-01-07T14:08:28.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="终端中常用的快捷键">
-<meta name="twitter:description" content="1.[Tab]    使用Tab键来进行命令补全，Tab键一般是在字母Q旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称    时可以只输入它的开头的一部分，然后按下Tab键就可以得到提示或者帮助完成，不止可以补全命令，补全目录、补全命令参数都是没问题的">
+<meta name="twitter:title" content="canvas图片裁剪">
+<meta name="twitter:description" content="canvas画布功能在前端还是挺方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01.png">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -162,14 +168,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-终端中常用的快捷键" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-canvas图片裁剪" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      终端中常用的快捷键
+      canvas图片裁剪
     </h1>
   
 
@@ -179,7 +185,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">319字</span>
+        <span class="post-count">294字</span>
       </span>
     </span>
 
@@ -195,24 +201,30 @@
 
 		
         
-        <a href="/2019/11/09/终端中常用的快捷键/" class="archive-article-date">
-  	<time datetime="2019-11-09T09:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+        <a href="/2020/01/07/canvas图片裁剪/" class="archive-article-date">
+  	<time datetime="2020-01-07T10:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.[Tab]<br>    使用Tab键来进行命令补全，Tab键一般是在字母Q旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称<br>    时可以只输入它的开头的一部分，然后按下Tab键就可以得到提示或者帮助完成，不止可以补全命令，补全目录、补全命令参数都是没问题的<br>    <a id="more"></a></p>
-<p>2.[Ctrl+c]<br>    当你输错命令时，光标会闪烁，这时无法继续输入命令，你可以用 Ctrl+C 来强制终止当前程序，恢复到可以输入的状态。<br>    当然这并不会退出终端。</p>
-<p>3.[Ctrl+d]<br>    键盘输入结束或者退出终端。</p>
-<p>4.[Ctrl+s]<br>    暂停当前程序，暂停后按下任意键恢复运行。</p>
-<p>5.[Ctrl+z]<br>    将当前程序放到后台运行，恢复到前台为命令fg。</p>
-<p>6.[Ctrl+a]<br>    将光标移至输入行头，相当于Home键。</p>
-<p>7.[Ctrl+e]<br>    将光标移至输入行末，相当于End键。</p>
-<p>8.[Ctrl+k]<br>    删除从光标所在位置到行末。</p>
-<p>9.键盘方向 ↑ 键<br>    你可以使用键盘上的方向上键↑，恢复你之前输入过的命令。</p>
-<p>以上就是一些常用的终端快捷键。</p>
+        <p>canvas画布功能在前端还是挺方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小</p>
+<a id="more"></a>
+<p>首先在HTML上需要定义一个canvas画布标签，由于画布本身是没有绘画能力的，所有工作必须要在js中完成。首先设置2D环境 </p>
+<img src="/2020/01/07/canvas图片裁剪/01.png" title="This is an image">
+<p>之后的命令都是在ctx这个对象的基础上进行的。 ctx就代表了绘图空间。<br>然后引入img图片，方法：drawImage(图片，起始位置X坐标，起始位置Y坐标，图片宽度，图片高度) 默认单位PX</p>
+<img src="/2020/01/07/canvas图片裁剪/02.png" title="This is an image">
+<p>在这里需要注意如果没有使用内联定义画布的宽度和高度就会导致图片不能全部显示<br>没有定义宽度和高度：</p>
+<img src="/2020/01/07/canvas图片裁剪/03.png" title="This is an image">
+
+<p>定义了高度和宽度：<br><br></p>
+<img src="/2020/01/07/canvas图片裁剪/04.png" title="This is an image">
+
+<p>最后对图片进行裁剪，方法：drawImage(img,sx,sy,sWidth,sHeight,x,y,width,height) sx,sy是裁剪的起始坐标；sWidth和sHeight是裁剪尺寸；x，y，是放置图片的坐标；width,height 放置图片的尺寸。</p>
+<img src="/2020/01/07/canvas图片裁剪/05.png" title="This is an image">
+
+<p>感谢大家的观看！</p>
 
       
 
@@ -226,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
@@ -282,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/11/09/终端中常用的快捷键/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2020/01/07/canvas图片裁剪/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +308,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          LocalStorage和SessionStorage 本地储存和会话储存的用法。
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">获取鼠标目前坐标来实现跟随鼠标</div>
+    <a href="/2019/12/14/图片轮播的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">图片轮播的实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,7 +350,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'Sat Nov 09 2019 17:25:22 GMT+0800',
+        id: 'Tue Jan 07 2020 18:34:40 GMT+0800',
         owner: '{{site.github_username}}',
         repo: '{{site.comment_gitment_repo}}',
         oauth: {
