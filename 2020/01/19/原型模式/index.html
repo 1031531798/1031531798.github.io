@@ -9,19 +9,22 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>林的博客</title>
+  <title>原型模式 | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法来自需求">
-<meta name="keywords" content="Web前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="林的博客">
-<meta property="og:url" content="https://1031531798.github.io/index.html">
+  <meta name="description" content="在javascript中每个函数都有一个 prototype（原型）属性，这个属性指向对象。这个属性的用途是包含可以由特定类型的所有实例共享的属性和方法。它可以让所有对象实例共享它所包含的属性和方法。">
+<meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型模式">
+<meta property="og:url" content="https://1031531798.github.io/2020/01/19/原型模式/index.html">
 <meta property="og:site_name" content="林的博客">
-<meta property="og:description" content="方法来自需求">
+<meta property="og:description" content="在javascript中每个函数都有一个 prototype（原型）属性，这个属性指向对象。这个属性的用途是包含可以由特定类型的所有实例共享的属性和方法。它可以让所有对象实例共享它所包含的属性和方法。">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/19/原型模式/22.png">
+<meta property="og:updated_time" content="2020-01-19T08:34:55.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林的博客">
-<meta name="twitter:description" content="方法来自需求">
+<meta name="twitter:title" content="原型模式">
+<meta name="twitter:description" content="在javascript中每个函数都有一个 prototype（原型）属性，这个属性指向对象。这个属性的用途是包含可以由特定类型的所有实例共享的属性和方法。它可以让所有对象实例共享它所包含的属性和方法。">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/01/19/原型模式/22.png">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -161,16 +164,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-原型模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-原型模式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/19/原型模式/">原型模式</a>
+    <h1 class="article-title" itemprop="name">
+      原型模式
     </h1>
   
 
@@ -205,9 +206,53 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在javascript中每个函数都有一个 <strong>prototype（原型）属性</strong>，这个属性指向对象。这个属性的用途是包含可以由特定类型的所有实例共享的属性和方法。它可以让所有对象实例共享它所包含的属性和方法。</p>
-        
-          <a class="article-more-a" href="/2020/01/19/原型模式/#more">查看全文 >></a>
-        
+<a id="more"></a>
+<p> <strong>1. 创建原型</strong></p>
+<p>   它用于函数，所以需要先创建一个函数</p>
+<p>   然后设置属性：</p>
+<pre><code>var preson = function () {};
+
+function first() {
+    var name = &quot;lin&quot;;
+    preson.prototype.name = &quot;tang&quot;;
+    preson.prototype.getName = function () {
+        console.log(name)
+    }
+}
+first()
+var obj = new preson();
+preson.prototype.getName(); //打印 lin
+console.log(preson.prototype.name) //打印 tang
+console.log(Object.getPrototypeOf(obj).name) //打印 tang</code></pre><p>   可以通过获取 xx.prototype.name 来获取你设置的属性值或函数方法。也可以用 <strong>Object.getPrototypeOf().name</strong>    来获取。这方法还可以将first函数里的变量在别的作用域里成功获取。</p>
+<p><strong>2. 属性搜索的顺序</strong></p>
+<pre><code>var preson = function () {
+    this.name = &quot;zhang&quot;
+};
+preson.prototype.name = &quot;lin&quot;;
+var obj = new preson();
+console.log(obj.name) //打印 zhang</code></pre><p>获取搜索的顺序：搜索先从对象实例的本身开始，如果找到给定名字的属性，就返回属性值，如果没有找到给定名字的属性，就会搜索原型对象中是否有给定名字属性。查看obj的属性：</p>
+<img src="/2020/01/19/原型模式/22.png" title="This is an image">
+
+<p>所以如果我们设定的实例的属性和原型对象属性同名或者覆盖的话，返回的是实例的属性。<br>如果你不确定属性是来自实例还是原型，你可以用 <strong>hasOwnproperty(属性</strong>) 方法用来判断属性是来自实例还是原型。</p>
+<pre><code>console.log(obj.hasOwnProperty(&quot;name&quot;)) //打印 true</code></pre><p>如果为true 说明属性是获取自实例，如果为false，就是从原型获取的。</p>
+<p>  <strong>3. <strong>混合模式</strong></strong></p>
+<pre><code>    function person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.arr = [this.name, this.age]
+    }
+    person.prototype = {
+            constructor: person,
+            getDate: function () {
+            console.log(this.name)
+        }
+    }
+    var first = new person(&apos;lin&apos;, 20)
+    var second = new person(&apos;tang&apos;, 17)
+    console.log(first.arr) //打印 [&quot;lin&quot; , 20]
+    console.log(second.arr) //打印 [&quot;tang&quot; , 17]
+
+由于只使用原型模式会导致函数不能传参和没有独立的属性，所以组合使用构造函数模式和原型模式可以有效的避免以上问题，每个实例都会有一份自己实例属性的副本，但同时有共享着对方法的引用，可以说是最大限度节省了内存。</code></pre>
       
 
       
@@ -229,16 +274,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/19/原型模式/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2020/01/19/原型模式/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/07/canvas图片裁剪/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">canvas图片裁剪</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -258,792 +362,38 @@
 
 
 
-
   
-    <article id="post-canvas图片裁剪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/07/canvas图片裁剪/">canvas图片裁剪</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">294字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2020/01/07/canvas图片裁剪/" class="archive-article-date">
-  	<time datetime="2020-01-07T10:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>canvas画布功能在前端还是很方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小</p>
-        
-          <a class="article-more-a" href="/2020/01/07/canvas图片裁剪/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/07/canvas图片裁剪/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片轮播的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/14/图片轮播的实现/">图片轮播的实现</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">537字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/12/14/图片轮播的实现/" class="archive-article-date">
-  	<time datetime="2019-12-14T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。</p>
-        
-          <a class="article-more-a" href="/2019/12/14/图片轮播的实现/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/14/图片轮播的实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LocalStorage和SessionStorage-本地储存和会话储存的用法。" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/">LocalStorage和SessionStorage 本地储存和会话储存的用法。</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">320字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/" class="archive-article-date">
-  	<time datetime="2019-12-02T14:10:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先简单介绍一下LocalStorage和SessionStorage，这两个API都是用在储存数据的，LocalStorage叫做本地储存，SessionStorage叫做会话储存。</p>
-        
-          <a class="article-more-a" href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-终端中常用的快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/09/终端中常用的快捷键/">终端中常用的快捷键</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">319字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/11/09/终端中常用的快捷键/" class="archive-article-date">
-  	<time datetime="2019-11-09T09:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.[Tab]<br>    使用Tab键来进行命令补全，Tab键一般是在字母Q旁边，这个技巧给你带来的最大的好处就是当你忘记某个命令的全称<br>    时可以只输入它的开头的一部分，然后按下Tab键就可以得到提示或者帮助完成，不止可以补全命令，补全目录、补全命令参数都是没问题的<br></p>
-        
-          <a class="article-more-a" href="/2019/11/09/终端中常用的快捷键/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/09/终端中常用的快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-获取鼠标目前坐标来实现跟随鼠标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/">获取鼠标目前坐标来实现跟随鼠标</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">173字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/" class="archive-article-date">
-  	<time datetime="2019-11-08T09:42:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里首先要简单说下“Event”这个对象，Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。</p>
-<p>事件通常与函数结合使用，函数不会在事件发生前被执行！通过这个对象来运用<b>clientX/clientY</b>这两个方法来获取当前鼠标相对于浏览器窗口<br>左上角的位置信息。</p>
-        
-          <a class="article-more-a" href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-File-API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/File-API/">File API</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">605字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/11/05/File-API/" class="archive-article-date">
-  	<time datetime="2019-11-05T14:14:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>File API 能提供有关文件的信息并允许网页中的 JavaScript 访问其内容。<!--move--><br>File API对于某些专门的网站的不可或缺的。现在常用它实现对文件的预览等功能。</p>
-<p>File API规定怎么从硬盘上提取文件，直接交给在网页中运行中的Javascript代码。然后代码可以打开文件探究数据，无论是本地文件还是其他文件。注意，关键在于文件会被直接交给JavaScript代码，它并不能修改文件，也不能创建新文件，想要保存任何数据，需要将数据发送到服务器或者保存在本地存储空间中。<br>在通过File API操作文件之前，首先必须取得文件。使用File API可以直接读取文本文件的内容。 </p>
-        
-          <a class="article-more-a" href="/2019/11/05/File-API/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/05/File-API/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-原生JS关于CSS样式的操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/01/原生JS关于CSS样式的操作/">原生JS关于CSS样式的操作</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">285字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/11/01/原生JS关于CSS样式的操作/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div>
-<h3 style="color:red;">方法一：object.style.className</h3>
-<span>该方法有两种写法，分别是 obj.style.width="300px"; 和 obj.style="width:300px;" 。这两种都可以达到修改对象样式的效果。这里需要注意在
-javascript中“-”是不能被识别的，所以比如你要设置背景图片，用“background-image”会报错，这时候驼峰命名法可以写成“backgroundImage”的形式，就不会报错。
-这种方法有很多的局限性。你不能用这种方法来获取内部样式和外部样式，只能用于行内元素，也就是说你如果想或许内联样式或者外部样式，就必须给你的标签设定
-一个“style”属性并且给它设定样式。 </span>
-</div>
-        
-          <a class="article-more-a" href="/2019/11/01/原生JS关于CSS样式的操作/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/01/原生JS关于CSS样式的操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-blog命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/01/blog命令/">hexo 中blog的命令</a>
-    </h1>
-  
-
-		
-		<div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">72字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-		
-        
-        <a href="/2019/11/01/blog命令/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:18:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>.deploy #需要部署的文件<br>node_modules #Hexo插件<br>public #生成的静态网页文件<br>scaffolds #模板<br>source #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</p>
-        
-          <a class="article-more-a" href="/2019/11/01/blog命令/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/01/blog命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
 
+  
 
+  
+
+  
+  
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Sun Jan 19 2020 16:26:59 GMT+0800',
+        owner: '{{site.github_username}}',
+        repo: '{{site.comment_gitment_repo}}',
+        oauth: {
+            client_id: '{{site.comment_gitment_clientId}}',
+            client_secret: '{{site.comment_gitment_clientSecret}}',
+        },
+    });
+    gitment.render('gitmentContainer')
+</script>
+
+  
+
+
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
           </div>
         </div>
       </div>
@@ -1064,8 +414,8 @@ javascript中“-”是不能被识别的，所以比如你要设置背景图片
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
