@@ -9,31 +9,28 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-  <title>图片轮播的实现 | 林的博客</title>
+  <title>BFC(块级格式化上下文) | 林的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。">
-<meta name="keywords" content="Javascript,HTML">
+  <meta name="description" content="BFC(块级格式化上下文)BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片轮播的实现">
-<meta property="og:url" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/index.html">
+<meta property="og:title" content="BFC(块级格式化上下文)">
+<meta property="og:url" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/index.html">
 <meta property="og:site_name" content="林的博客">
-<meta property="og:description" content="图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。">
+<meta property="og:description" content="BFC(块级格式化上下文)BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/01.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/02.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/03.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/04.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/05.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/06.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/07.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/08.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/09.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/11.png">
-<meta property="og:updated_time" content="2019-12-14T13:30:35.695Z">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/05.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/04.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/07.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/06.png">
+<meta property="og:updated_time" content="2020-02-04T11:10:09.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片轮播的实现">
-<meta name="twitter:description" content="图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。">
-<meta name="twitter:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/01.png">
+<meta name="twitter:title" content="BFC(块级格式化上下文)">
+<meta name="twitter:description" content="BFC(块级格式化上下文)BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/01.png">
   
     <link rel="alternative" href="/atom.xml" title="林的博客" type="application/atom+xml">
   
@@ -173,14 +170,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-图片轮播的实现" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-BFC-块级格式化上下文" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      图片轮播的实现
+      BFC(块级格式化上下文)
     </h1>
   
 
@@ -190,7 +187,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">537字</span>
+        <span class="post-count">485字</span>
       </span>
     </span>
 
@@ -206,45 +203,58 @@
 
 		
         
-        <a href="/2019/12/14/图片轮播的实现/" class="archive-article-date">
-  	<time datetime="2019-12-14T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
+        <a href="/2020/02/02/BFC-块级格式化上下文/" class="archive-article-date">
+  	<time datetime="2020-02-02T06:25:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。<a id="more"></a><br>所以制作一个合格的图片轮播系统是很值得学习的。本次是借鉴华为手机的图片轮播系统：</p>
-<img src="/2019/12/14/图片轮播的实现/01.png" title="This is an image"> 
-
-<p>首先明确下图片轮播系统的基本功能：</p>
-<img src="/2019/12/14/图片轮播的实现/02.png" title="This is an image">
-
-<p>定义DOM部分的代码：</p>
-<img src="/2019/12/14/图片轮播的实现/03.png" title="This is an image">
-
-<p>图片下方的圆点可以用css样式中的 <b>border-radius </b> 来将div设置成圆形。<br>这里需要更改圆点样式我用的是切换class属性值，在css中定义两个样式来进行切换。</p>
-<img src="/2019/12/14/图片轮播的实现/04.png" title="This is an image">
-
-<p>有了这些条件，可以进行JS代码的编辑。创建一个函数并引入id属性，由此来判断鼠标停留在哪个圆点上。再用 switch 判断每个圆点所对应的操作。</p>
-<img src="/2019/12/14/图片轮播的实现/05.png" title="This is an image">
-
-<p>上图只显示了id为r1时的操作，其他 r2,r3..r7都类似，只需要改变dis_none函数中引入的图片id。<br>dis_none 函数：</p>
-<img src="/2019/12/14/图片轮播的实现/06.png" title="This is an image">
-
-<p>现在已经能将下方圆点与上方图片对应起来了，接下来需要做一个切换的特效：</p>
-<img src="/2019/12/14/图片轮播的实现/07.png" title="This is an image">
-
-<p>为图片定义一个CSS3动画效果，更改透明度时，将会有1秒的动画时间。由于我们在之前的dis_none函数中已经设定过透明度的修改，所以不用在css中改变透明度了。<br>这里需要注意之前 swimg函数中有一个取消动画滞后的命令。不设置这个命令就会导致下方圆点与图片不符合。</p>
-<p>然后是顺序切换的逻辑编辑：</p>
-<img src="/2019/12/14/图片轮播的实现/08.png" title="This is an image">
-
-<p> document.getElementsByClassName(‘ra2’)[0]获取class为“ra2”的对象，<b>nextElementSibling</b> 方法获取对象的兄弟元素。<br> 不过由于不能获取“r1”，所以判断获取不到时id就为“r1”。</p>
-<p> 最后设置定时器和取消定时器：</p>
-<img src="/2019/12/14/图片轮播的实现/09.png" title="This is an image">
-<img src="/2019/12/14/图片轮播的实现/11.png" title="This is an image">
-
-<p>$(‘#lb_a1’) 是一个宽 1240px 高 547px 的 a 标签，定位在图片下方，当用户点击时可以跳转到网页。<br>感谢您的观看<br>以上只是个人方法，仅供参考。</p>
+        <h1 id="BFC-块级格式化上下文"><a href="#BFC-块级格式化上下文" class="headerlink" title="BFC(块级格式化上下文)"></a>BFC(块级格式化上下文)</h1><p>BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。</p>
+<a id="more"></a>
+<p><strong>BFC布局规则：</strong></p>
+<ul>
+<li>内部的Box会在垂直⽅向，⼀个接⼀个地放置。</li>
+<li>Box垂直⽅向的距离由margin决定。属于同⼀个BFC的两个相邻Box的margin会发⽣重叠。</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是⻚⾯上的⼀个隔离的独⽴容器，容器⾥⾯的⼦元素不会影响到外⾯的元素。反之也如此。</li>
+<li>计算BFC的⾼度时，浮动元素也参与计算。</li>
+</ul>
+<hr>
+<p><strong>触发BFC的条件：</strong></p>
+<ul>
+<li>float不为none</li>
+<li>绝对定位元素（absolute、fixed）</li>
+<li>display设置为inline-block、table-cell、table-caption、flex、inline-flex</li>
+<li>overflow不为visible可看见的（hidden、scroll、auto）</li>
+<li>根元素</li>
+</ul>
+<hr>
+<p><strong>BFC的用处：</strong></p>
+<ol>
+<li><p>清除浮动</p>
+<p>当元素被设定float属性后，它将脱离文本流，成为一个独立的容器。如果父元素没有设置宽高，<br>那么由子元素撑开的空间将会消失。为父元素添加上述CSS属性触发BFC来清除浮动。当然清除<br>浮动还是推荐使用after伪类和before伪类来实现。</p>
+<p>设定子元素浮动：</p>
+<img src="/2020/02/02/BFC-块级格式化上下文/01.png" title="This is an image">
+<p>父元素变成了一条线</p>
+<img src="/2020/02/02/BFC-块级格式化上下文/03.png" title="This is an image">
+<p>设定父元素overflow：hidden；</p>
+<img src="/2020/02/02/BFC-块级格式化上下文/02.png" title="This is an image">
+<p>父元素的空间被撑开了。</p>
+</li>
+<li><p>解决margin重叠</p>
+<p>在标准文档流中，块级标签之间竖直方向的margin会以大的为准，这就是margin的塌陷现象。可以用overflow：hidden产生bfc来解决。</p>
+<p>margin重叠：<br>我们设置两个子元素的margin各为100px，最后需要相邻处的margin为200px。</p>
+<img src="/2020/02/02/BFC-块级格式化上下文/05.png" title="This is an image">
+<img src="/2020/02/02/BFC-块级格式化上下文/04.png" title="This is an image">
+<p>结果发现这两个100px的内边距重合了。想要避免重合需要将其放入两个BFC容器中。</p>
+<img src="/2020/02/02/BFC-块级格式化上下文/07.png" title="This is an image">
+<img src="/2020/02/02/BFC-块级格式化上下文/06.png" title="This is an image">
+<p>这时候会发现margin已经不重叠了。</p>
+</li>
+</ol>
 
       
 
@@ -258,11 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
@@ -318,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2019/12/14/图片轮播的实现/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +338,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/07/canvas图片裁剪/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          canvas图片裁剪
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/02/LocalStorage和SessionStorage-本地储存和会话储存的用法。/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">LocalStorage和SessionStorage 本地储存和会话储存的用法。</div>
+    <a href="/2020/01/23/Ajax请求/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax请求</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -383,7 +380,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'Sat Dec 14 2019 18:31:11 GMT+0800',
+        id: 'Sun Feb 02 2020 14:25:17 GMT+0800',
         owner: '{{site.github_username}}',
         repo: '{{site.comment_gitment_repo}}',
         oauth: {
