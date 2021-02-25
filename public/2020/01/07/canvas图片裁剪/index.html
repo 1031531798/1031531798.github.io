@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="violet的博客">
 <meta property="og:description" content="canvas画布功能在前端还是很方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/01.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/02.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/03.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/04.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/05.png">
-<meta property="og:updated_time" content="2021-02-25T11:52:42.077Z">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/04.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/05.png">
+<meta property="og:updated_time" content="2021-02-25T14:05:32.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="canvas图片裁剪">
 <meta name="twitter:description" content="canvas画布功能在前端还是很方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小">
-<meta name="twitter:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/01.png">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/01/07/canvas图片裁剪/01.png">
   
     <link rel="alternative" href="/atom.xml" title="violet的博客" type="application/atom+xml">
   
@@ -187,20 +187,8 @@
       
         <p>canvas画布功能在前端还是很方便的，可以实现很多精美的特效。这里记录下关于canvas的一个图片裁剪功能，通过这个功能可以对图片进行放大与缩小</p>
 <a id="more"></a>
-<p>首先在HTML上需要定义一个canvas画布标签，由于画布本身是没有绘画能力的，所有工作必须要在js中完成。首先设置2D环境 </p>
-<img src="/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/01.png" title="This is an image">
-<p>之后的命令都是在ctx这个对象的基础上进行的。 ctx就代表了绘图空间。<br>然后引入img图片，方法：drawImage(图片，起始位置X坐标，起始位置Y坐标，图片宽度，图片高度) 默认单位PX</p>
-<img src="/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/02.png" title="This is an image">
-<p>在这里需要注意如果没有使用内联定义画布的宽度和高度就会导致图片不能全部显示<br>没有定义宽度和高度：</p>
-<img src="/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/03.png" title="This is an image">
-
-<p>定义了高度和宽度：<br><br></p>
-<img src="/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/04.png" title="This is an image">
-
-<p>最后对图片进行裁剪，方法：drawImage(img,sx,sy,sWidth,sHeight,x,y,width,height) sx,sy是裁剪的起始坐标；sWidth和sHeight是裁剪尺寸；x，y，是放置图片的坐标；width,height 放置图片的尺寸。</p>
-<img src="/2020/01/07/canvas图片裁剪/01/07/canvas图片裁剪/05.png" title="This is an image">
-
-<p>感谢大家的观看！</p>
+<p>首先在HTML上需要定义一个canvas画布标签，由于画布本身是没有绘画能力的，所有工作必须要在js中完成。首先设置2D环境<br><img src="/2020/01/07/canvas图片裁剪/01.png" alt="Loading failed"><br>之后的命令都是在ctx这个对象的基础上进行的。 ctx就代表了绘图空间。<br>然后引入img图片，方法：drawImage(图片，起始位置X坐标，起始位置Y坐标，图片宽度，图片高度) 默认单位PX<br><img src="/2020/01/07/canvas图片裁剪/02.png" alt="Loading failed"><br>在这里需要注意如果没有使用内联定义画布的宽度和高度就会导致图片不能全部显示<br>没有定义宽度和高度：<br><img src="/2020/01/07/canvas图片裁剪/03.png" alt="Loading failed"><br>定义了高度和宽度：<br><br><br><img src="/2020/01/07/canvas图片裁剪/04.png" alt="Loading failed"><br>最后对图片进行裁剪，方法：drawImage(img,sx,sy,sWidth,sHeight,x,y,width,height) sx,sy是裁剪的起始坐标；sWidth和sHeight是裁剪尺寸；x，y，是放置图片的坐标；width,height 放置图片的尺寸。</p>
+<p><img src="/2020/01/07/canvas图片裁剪/05.png" alt="Loading failed"><br>感谢大家的观看！</p>
 
       
 
@@ -214,7 +202,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -442,11 +430,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +442,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,7 +529,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div&gt;&lt;p&gt;QQ号：1031531798&lt;/p&gt;&lt;p&gt;联系邮箱：1031531798@qq.com&lt;/p&gt;&lt;p&gt;在这记录分享学习web前端过程中的收获&lt;/p&gt;&lt;/div&gt;</div>
   	  	
     	</section>
     

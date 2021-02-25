@@ -42,12 +42,13 @@ BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除�
 	那么由子元素撑开的空间将会消失。为父元素添加上述CSS属性触发BFC来清除浮动。当然清除
 	浮动还是推荐使用after伪类和before伪类来实现。
 	
+	未设置浮动：
+	![Loading failed](01.png)
 	设定子元素浮动：
-	{% asset_img 01.png This is an image %}
 	父元素变成了一条线
-	{% asset_img 03.png This is an image %}
+	![Loading failed](02.png)
 	设定父元素overflow：hidden；
-	{% asset_img 02.png This is an image %}
+	![Loading failed](03.png)
 	父元素的空间被撑开了。
 	
  2. 解决margin重叠
@@ -56,10 +57,10 @@ BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除�
 	
 	margin重叠：
 	我们设置两个子元素的margin各为100px，最后需要相邻处的margin为200px。
-	{% asset_img 05.png This is an image %}
-	{% asset_img 04.png This is an image %}
+	![Loading failed](05.png)
+	![Loading failed](04.png)
 	结果发现这两个100px的内边距重合了。想要避免重合需要将其放入两个BFC容器中。
-	{% asset_img 07.png This is an image %}
-	{% asset_img 06.png This is an image %}
+	![Loading failed](09.png)
+	![Loading failed](06.png)
 	这时候会发现margin已经不重叠了。
 	

@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="violet的博客">
 <meta property="og:description" content="BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/01.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/03.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/02.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/05.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/04.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/07.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/06.png">
-<meta property="og:updated_time" content="2021-02-25T11:52:42.071Z">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/05.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/04.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/09.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/06.png">
+<meta property="og:updated_time" content="2021-02-25T14:02:37.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC(块级格式化上下文)">
 <meta name="twitter:description" content="BFC是 W3C CSS 2.1 规范中的一个概念，它的作用主要是用来清除浮动，解决margin重叠等。">
-<meta name="twitter:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/01.png">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/02/02/BFC-块级格式化上下文/01.png">
   
     <link rel="alternative" href="/atom.xml" title="violet的博客" type="application/atom+xml">
   
@@ -212,23 +212,11 @@
 <ol>
 <li><p>清除浮动</p>
 <p>当元素被设定float属性后，它将脱离文本流，成为一个独立的容器。如果父元素没有设置宽高，<br>那么由子元素撑开的空间将会消失。为父元素添加上述CSS属性触发BFC来清除浮动。当然清除<br>浮动还是推荐使用after伪类和before伪类来实现。</p>
-<p>设定子元素浮动：</p>
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/01.png" title="This is an image">
-<p>父元素变成了一条线</p>
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/03.png" title="This is an image">
-<p>设定父元素overflow：hidden；</p>
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/02.png" title="This is an image">
-<p>父元素的空间被撑开了。</p>
+<p>未设置浮动：<br><img src="/2020/02/02/BFC-块级格式化上下文/01.png" alt="Loading failed"><br>设定子元素浮动：<br>父元素变成了一条线<br><img src="/2020/02/02/BFC-块级格式化上下文/02.png" alt="Loading failed"><br>设定父元素overflow：hidden；<br><img src="/2020/02/02/BFC-块级格式化上下文/03.png" alt="Loading failed"><br>父元素的空间被撑开了。</p>
 </li>
 <li><p>解决margin重叠</p>
 <p>在标准文档流中，块级标签之间竖直方向的margin会以大的为准，这就是margin的塌陷现象。可以用overflow：hidden产生bfc来解决。</p>
-<p>margin重叠：<br>我们设置两个子元素的margin各为100px，最后需要相邻处的margin为200px。</p>
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/05.png" title="This is an image">
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/04.png" title="This is an image">
-<p>结果发现这两个100px的内边距重合了。想要避免重合需要将其放入两个BFC容器中。</p>
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/07.png" title="This is an image">
-<img src="/2020/02/02/BFC-块级格式化上下文/02/02/BFC-块级格式化上下文/06.png" title="This is an image">
-<p>这时候会发现margin已经不重叠了。</p>
+<p>margin重叠：<br>我们设置两个子元素的margin各为100px，最后需要相邻处的margin为200px。<br><img src="/2020/02/02/BFC-块级格式化上下文/05.png" alt="Loading failed"><br><img src="/2020/02/02/BFC-块级格式化上下文/04.png" alt="Loading failed"><br>结果发现这两个100px的内边距重合了。想要避免重合需要将其放入两个BFC容器中。<br><img src="/2020/02/02/BFC-块级格式化上下文/09.png" alt="Loading failed"><br><img src="/2020/02/02/BFC-块级格式化上下文/06.png" alt="Loading failed"><br>这时候会发现margin已经不重叠了。</p>
 </li>
 </ol>
 
@@ -244,7 +232,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -472,11 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,11 +472,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +559,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div&gt;&lt;p&gt;QQ号：1031531798&lt;/p&gt;&lt;p&gt;联系邮箱：1031531798@qq.com&lt;/p&gt;&lt;p&gt;在这记录分享学习web前端过程中的收获&lt;/p&gt;&lt;/div&gt;</div>
   	  	
     	</section>
     

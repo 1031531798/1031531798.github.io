@@ -14,6 +14,3 @@ _posts #文章
 themes #主题
 _config.yml #全局配置文件
 package.json
-
-
-转载：https://www.jianshu.com/p/6c3e87a3aec2

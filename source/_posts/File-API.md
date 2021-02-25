@@ -10,8 +10,7 @@ File API规定怎么从硬盘上提取文件，直接交给在网页中运行中
 在通过File API操作文件之前，首先必须取得文件。使用File API可以直接读取文本文件的内容。 
 <!--more-->
 例如：
-{% asset_img 11.9.png This is an image %}
-
+![Loading failed](11.9.png)
 readAsText()方法只能处理文本内容的文件，如CSV格式，XML格式，.docx格式和.xlsx格式的文件。 
 readAsText()方法只是众多读取文件的方法之一，还有readAsBinaryStrng(),readAsDataURL()和readAsArrayBuffer().
 

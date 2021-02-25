@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="violet的博客">
 <meta property="og:description" content="Symbol类型是ES6新增的基础数据类型，可以调用symbol（）函数来创建一个symbol实例。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02/22/symbol类型理解/01.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02/22/symbol类型理解/02.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02/22/symbol类型理解/03.png">
-<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02/22/symbol类型理解/04.png">
-<meta property="og:updated_time" content="2021-02-25T11:52:42.082Z">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/01.png">
+<meta property="og:updated_time" content="2021-02-25T14:03:33.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="symbol类型理解">
 <meta name="twitter:description" content="Symbol类型是ES6新增的基础数据类型，可以调用symbol（）函数来创建一个symbol实例。">
-<meta name="twitter:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/02/22/symbol类型理解/01.png">
+<meta name="twitter:image" content="https://1031531798.github.io/2020/02/22/symbol类型理解/01.png">
   
     <link rel="alternative" href="/atom.xml" title="violet的博客" type="application/atom+xml">
   
@@ -195,19 +195,13 @@
 
 <p><strong><strong>symbol的特点</strong></strong></p>
 <ul>
-<li><p><strong>每一个实例都是唯一的，因此比较两个实例时会返回false。</strong></p>
-<img src="/2020/02/22/symbol类型理解/02/22/symbol类型理解/01.png" title="This is an image">
-<img src="/2020/02/22/symbol类型理解/02/22/symbol类型理解/02.png" title="This is an image">
+<li><p><strong>每一个实例都是唯一的，因此比较两个实例时会返回false。</strong><br> <img src="/2020/02/22/symbol类型理解/01.png" alt="Loading failed"><br> <img src="/2020/02/22/symbol类型理解/02.png" alt="Loading failed"></p>
 </li>
 <li><p><strong>Symbol定义的属性未被包含在对象自身的属性名集合(property names)之中，所以在for in 或者 keys()枚举时，无法枚举出symbol类型的key。</strong></p>
-<img src="/2020/02/22/symbol类型理解/02/22/symbol类型理解/03.png" title="This is an image">
-
-<p> 如果要获取symbol类型的对象属性，可以用一些专门针对Symbol的API：</p>
- <img src="/2020/02/22/symbol类型理解/02/22/symbol类型理解/04.png" title="This is an image">
-
+<p> <img src="/2020/02/22/symbol类型理解/03.png" alt="Loading failed"><br> 如果要获取symbol类型的对象属性，可以用一些专门针对Symbol的API：</p>
+<p> <img src="/2020/02/22/symbol类型理解/01.png" alt="Loading failed"><br>另外在模块中经常会使用Symbol定义类的私有属性/方法，由于symbol是唯一的，只能在定义文件中查看到。外部文件无法访问到symbol类型的对象属性。</p>
 </li>
 </ul>
-<p>另外在模块中经常会使用Symbol定义类的私有属性/方法，由于symbol是唯一的，只能在定义文件中查看到。外部文件无法访问到symbol类型的对象属性。</p>
 <p>参考：<a href="https://www.jianshu.com/p/f40a77bbd74e" target="_blank" rel="noopener">https://www.jianshu.com/p/f40a77bbd74e</a></p>
 
       
@@ -222,7 +216,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -454,11 +448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +460,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,7 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div&gt;&lt;p&gt;QQ号：1031531798&lt;/p&gt;&lt;p&gt;联系邮箱：1031531798@qq.com&lt;/p&gt;&lt;p&gt;在这记录分享学习web前端过程中的收获&lt;/p&gt;&lt;/div&gt;</div>
   	  	
     	</section>
     

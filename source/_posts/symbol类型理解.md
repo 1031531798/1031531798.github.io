@@ -22,17 +22,15 @@ function Symbol(description?: any): symbol
 ****symbol的特点****
 
  - **每一个实例都是唯一的，因此比较两个实例时会返回false。**
- {% asset_img 01.png This is an image %}
- {% asset_img 02.png This is an image %}
+	![Loading failed](01.png)
+	![Loading failed](02.png)
  
  - **Symbol定义的属性未被包含在对象自身的属性名集合(property names)之中，所以在for in 或者 keys()枚举时，无法枚举出symbol类型的key。**
  
- {% asset_img 03.png This is an image %}
-
+	![Loading failed](03.png)
 	如果要获取symbol类型的对象属性，可以用一些专门针对Symbol的API：
 
-	{% asset_img 04.png This is an image %}
-	
+	![Loading failed](01.png)
 另外在模块中经常会使用Symbol定义类的私有属性/方法，由于symbol是唯一的，只能在定义文件中查看到。外部文件无法访问到symbol类型的对象属性。
 
 参考：https://www.jianshu.com/p/f40a77bbd74e

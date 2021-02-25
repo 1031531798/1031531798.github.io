@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="violet的博客">
 <meta property="og:description" content="图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/01.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/02.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/03.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/04.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/05.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/06.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/07.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/08.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/09.png">
-<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/11.png">
-<meta property="og:updated_time" content="2021-02-25T11:52:42.085Z">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/01.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/02.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/03.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/04.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/05.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/06.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/07.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/08.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/09.png">
+<meta property="og:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/11.png">
+<meta property="og:updated_time" content="2021-02-25T14:08:09.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片轮播的实现">
 <meta name="twitter:description" content="图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。">
-<meta name="twitter:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/01.png">
+<meta name="twitter:image" content="https://1031531798.github.io/2019/12/14/图片轮播的实现/01.png">
   
     <link rel="alternative" href="/atom.xml" title="violet的博客" type="application/atom+xml">
   
@@ -190,37 +190,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。<a id="more"></a><br>所以制作一个合格的图片轮播系统是很值得学习的。本次是借鉴华为手机的图片轮播系统：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/01.png" title="This is an image"> 
-
-<p>首先明确下图片轮播系统的基本功能：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/02.png" title="This is an image">
-
-<p>定义DOM部分的代码：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/03.png" title="This is an image">
-
-<p>图片下方的圆点可以用css样式中的 <b>border-radius </b> 来将div设置成圆形。<br>这里需要更改圆点样式我用的是切换class属性值，在css中定义两个样式来进行切换。</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/04.png" title="This is an image">
-
-<p>有了这些条件，可以进行JS代码的编辑。创建一个函数并引入id属性，由此来判断鼠标停留在哪个圆点上。再用 switch 判断每个圆点所对应的操作。</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/05.png" title="This is an image">
-
-<p>上图只显示了id为r1时的操作，其他 r2,r3..r7都类似，只需要改变dis_none函数中引入的图片id。<br>dis_none 函数：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/06.png" title="This is an image">
-
-<p>现在已经能将下方圆点与上方图片对应起来了，接下来需要做一个切换的特效：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/07.png" title="This is an image">
-
-<p>为图片定义一个CSS3动画效果，更改透明度时，将会有1秒的动画时间。由于我们在之前的dis_none函数中已经设定过透明度的修改，所以不用在css中改变透明度了。<br>这里需要注意之前 swimg函数中有一个取消动画滞后的命令。不设置这个命令就会导致下方圆点与图片不符合。</p>
+        <p>图片轮播系统已经普及在各种网站中，图片轮播可以使网站内容更为生动。一个令人眼前一亮的轮播系统可以使用户的浏览体验增色不少。<a id="more"></a><br>所以制作一个合格的图片轮播系统是很值得学习的。本次是借鉴华为手机的图片轮播系统：<br><img src="/2019/12/14/图片轮播的实现/01.png" alt="Loading failed"><br>首先明确下图片轮播系统的基本功能：<br><img src="/2019/12/14/图片轮播的实现/02.png" alt="Loading failed"><br>定义DOM部分的代码：<br><img src="/2019/12/14/图片轮播的实现/03.png" alt="Loading failed"><br>图片下方的圆点可以用css样式中的 <b>border-radius </b> 来将div设置成圆形。<br>这里需要更改圆点样式我用的是切换class属性值，在css中定义两个样式来进行切换。<br><img src="/2019/12/14/图片轮播的实现/04.png" alt="Loading failed"><br>有了这些条件，可以进行JS代码的编辑。创建一个函数并引入id属性，由此来判断鼠标停留在哪个圆点上。再用 switch 判断每个圆点所对应的操作。</p>
+<p><img src="/2019/12/14/图片轮播的实现/05.png" alt="Loading failed"><br>上图只显示了id为r1时的操作，其他 r2,r3..r7都类似，只需要改变dis_none函数中引入的图片id。<br>dis_none 函数：</p>
+<p><img src="/2019/12/14/图片轮播的实现/06.png" alt="Loading failed"><br>现在已经能将下方圆点与上方图片对应起来了，接下来需要做一个切换的特效：</p>
+<p><img src="/2019/12/14/图片轮播的实现/07.png" alt="Loading failed"><br>为图片定义一个CSS3动画效果，更改透明度时，将会有1秒的动画时间。由于我们在之前的dis_none函数中已经设定过透明度的修改，所以不用在css中改变透明度了。<br>这里需要注意之前 swimg函数中有一个取消动画滞后的命令。不设置这个命令就会导致下方圆点与图片不符合。</p>
 <p>然后是顺序切换的逻辑编辑：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/08.png" title="This is an image">
-
-<p> document.getElementsByClassName(‘ra2’)[0]获取class为“ra2”的对象，<b>nextElementSibling</b> 方法获取对象的兄弟元素。<br> 不过由于不能获取“r1”，所以判断获取不到时id就为“r1”。</p>
+<p> <img src="/2019/12/14/图片轮播的实现/08.png" alt="Loading failed"><br> document.getElementsByClassName(‘ra2’)[0]获取class为“ra2”的对象，<b>nextElementSibling</b> 方法获取对象的兄弟元素。<br> 不过由于不能获取“r1”，所以判断获取不到时id就为“r1”。</p>
 <p> 最后设置定时器和取消定时器：</p>
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/09.png" title="This is an image">
-<img src="/2019/12/14/图片轮播的实现/12/14/图片轮播的实现/11.png" title="This is an image">
-
-<p>$(‘#lb_a1’) 是一个宽 1240px 高 547px 的 a 标签，定位在图片下方，当用户点击时可以跳转到网页。<br>感谢您的观看<br>以上只是个人方法，仅供参考。</p>
+<p><img src="/2019/12/14/图片轮播的实现/09.png" alt="Loading failed"><br><img src="/2019/12/14/图片轮播的实现/11.png" alt="Loading failed"><br>$(‘#lb_a1’) 是一个宽 1240px 高 547px 的 a 标签，定位在图片下方，当用户点击时可以跳转到网页。<br>感谢您的观看<br>以上只是个人方法，仅供参考。</p>
 
       
 
@@ -234,7 +211,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     
@@ -466,11 +443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +455,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +542,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div&gt;&lt;p&gt;QQ号：1031531798&lt;/p&gt;&lt;p&gt;联系邮箱：1031531798@qq.com&lt;/p&gt;&lt;p&gt;在这记录分享学习web前端过程中的收获&lt;/p&gt;&lt;/div&gt;</div>
   	  	
     	</section>
     
