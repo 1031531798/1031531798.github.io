@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://1031531798.github.io">
-  <title>Archives: 2019/11 | violet的博客</title>
+  <title>nginx反向代理解决跨域问题 | violet的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法来自需求">
-<meta name="keywords" content="Web前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="violet的博客">
-<meta property="og:url" content="https://1031531798.github.io/archives/2019/11/index.html">
+  <meta name="description" content="nginx代理请求nginx的反向代理可谓是nginx的拿手好戏，本文介绍下使用反向代理来解决请求跨域的问题。">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx反向代理解决跨域问题">
+<meta property="og:url" content="https://1031531798.github.io/2021/02/27/nginx反向代理解决跨域问题/index.html">
 <meta property="og:site_name" content="violet的博客">
-<meta property="og:description" content="方法来自需求">
+<meta property="og:description" content="nginx代理请求nginx的反向代理可谓是nginx的拿手好戏，本文介绍下使用反向代理来解决请求跨域的问题。">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210227221020291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psZWphbg==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2021-02-28T06:06:23.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="violet的博客">
-<meta name="twitter:description" content="方法来自需求">
+<meta name="twitter:title" content="nginx反向代理解决跨域问题">
+<meta name="twitter:description" content="nginx代理请求nginx的反向代理可谓是nginx的拿手好戏，本文介绍下使用反向代理来解决请求跨域的问题。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210227221020291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psZWphbg==,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="violet的博客" type="application/atom+xml">
   
@@ -158,205 +161,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-nginx反向代理解决跨域问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nginx反向代理解决跨域问题
+    </h1>
+  
+
+        
+        <a href="/2021/02/27/nginx反向代理解决跨域问题/" class="archive-article-date">
+  	<time datetime="2021-02-27T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nginx代理请求"><a href="#nginx代理请求" class="headerlink" title="nginx代理请求"></a>nginx代理请求</h2><p>nginx的反向代理可谓是nginx的拿手好戏，本文介绍下使用反向代理来解决请求跨域的问题。</p>
+<a id="more"></a>
+<ol>
+<li><strong>首先打开nginx目录下的conf文件中的nginx.config文件，这个文件是nginx的配置文件</strong><br><img src="https://img-blog.csdnimg.cn/20210227221020291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3psZWphbg==,size_16,color_FFFFFF,t_70" alt="nginx.config"></li>
+<li><strong>编辑nginx.config里的内容</strong></li>
+</ol>
+<blockquote>
+<p>打开nginx.config文件，然后找到server字段，定义代理服务。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       <span class="number">80</span>; <span class="comment">//监听的端口号</span></span><br><span class="line">        server_name  localhost; <span class="comment">// 域名</span></span><br><span class="line">		<span class="comment">// 默认匹配打开的html文件</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/local/wx-manage-web/dist/; <span class="comment">//文件夹路径</span></span><br><span class="line">            index  index.html index.htm; <span class="comment">// 打开的文件类型</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 自定义匹配路径 </span></span><br><span class="line">        <span class="comment">//这里/api/代表如果出现localhost:80/api/xxx就会匹配到这个规则而不是默认规则</span></span><br><span class="line">        location /api/ &#123;</span><br><span class="line">            rewrite  ^.+api/?(.*)$ /$<span class="number">1</span> <span class="keyword">break</span>;  <span class="comment">//重写路径 删除自定义的前缀。</span></span><br><span class="line">            proxy_pass http:<span class="comment">//localhost:8088/;// 重定向的路径</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这样就完成了一个代理服务。当浏览器的地址带有api的时候就会将请求重定向到<code>localhost:8088/</code> 从而完成跨域。</p>
+</blockquote>
+<ol start="3">
+<li><strong>更新nginx</strong></li>
+</ol>
+<blockquote>
+<p>修改nginx.config后需要重启nginx，nginx。或者nginx -s stop 停止nginx后再 start nginx 启动nginx </p>
+</blockquote>
+<ul>
+<li>开启nginx<br>在控制台进入nginx根目录下输入<code>start nginx</code></li>
+<li>关闭<br>在控制台进入nginx根目录下输入 <code>nginx -s stop</code> 停止nginx</li>
+<li>重启<br>在控制台进入nginx根目录下输入<code>nginx -s reload</code>即可重新启动</li>
+</ul>
+<blockquote>
+<p>ps：仅是自己学习过程中的小结</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/09/终端中常用的快捷键/" class="archive-article-date">
-  	<time datetime="2019-11-09T09:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/09/终端中常用的快捷键/">终端中常用的快捷键</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://1031531798.github.io/2021/02/27/nginx反向代理解决跨域问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/" class="archive-article-date">
-  	<time datetime="2019-11-08T09:42:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/27/ES6语法简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6语法简介</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/获取鼠标目前坐标来实现跟随鼠标/">获取鼠标目前坐标来实现跟随鼠标</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/05/File-API/" class="archive-article-date">
-  	<time datetime="2019-11-05T14:14:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/05/File-API/">File API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/01/原生JS关于CSS样式的操作/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/01/原生JS关于CSS样式的操作/">原生JS关于CSS样式的操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/01/blog命令/" class="archive-article-date">
-  	<time datetime="2019-11-01T13:18:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/01/blog命令/">hexo 中blog的命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -379,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
